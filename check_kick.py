@@ -7,20 +7,20 @@ import time
 import json
 import subprocess
 
-KICK_USER = os.environ.get("USER")
+USER = os.environ.get("USER")
 TOKEN = os.environ.get("TOKEN") 
-CHANNEL_ID = os.environ.get("CHANNEL")
+CHANNEL = os.environ.get("CHANNEL")
 NOTIFY_WINDOW = int(os.environ.get("NOTIFY_WINDOW", "15"))
-GITHUB_TOKEN = os.environ.get("GIT_TOKEN") 
+GIT_TOKEN = os.environ.get("GIT_TOKEN") 
 
-if not KICK_USER:
+if not USER:
     print("Missing required env: KICK_USER")
     sys.exit(1)
 if not TOKEN:
     print("Missing required env: DISCORD_TOKEN")
     sys.exit(1)
 
-API = f"https://kick.com/api/v1/channels/{KICK_USER}"
+API = f"https://kick.com/api/v1/channels/{USER}"
 
 def parse_iso(s):
     if not s:
@@ -142,7 +142,7 @@ if not should_notify:
 
 user = (data.get("user") or {}).get("username") or KICK_USER
 title = (livestream.get("title") or livestream.get("name") or "Live now") if isinstance(livestream, dict) else "Live now"
-link = f"https://kick.com/{KICK_USER}"
+link = f"https://kick.com/{USER}"
 thumbnail = None
 try:
     if isinstance(livestream, dict):
@@ -165,7 +165,7 @@ payload = {
     "allowed_mentions": {"parse": []} 
 }
 
-success = send_via_bot(TOKEN, CHANNEL_ID, payload)
+success = send_via_bot(TOKEN, CHANNEL, payload)
 if not success:
     print("Failed to send message. Exiting.")
     sys.exit(1)
