@@ -10,12 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
+      - name: Install requests
+        run: python -m pip install --upgrade pip requests
+
       - name: Run Kick check
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          KICK_USER: ${{ secrets.KICK_USER }}
+          KICK_USER: ${{ secrets.USER }}
+          DISCORD_TOKEN: ${{ secrets.TOKEN }}
+          DISCORD_CHANNEL_ID: ${{ secrets.CHANNEL }}
+          NOTIFY_WINDOW: '15'                    
         run: python check_kick.py
