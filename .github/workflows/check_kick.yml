@@ -21,11 +21,9 @@ jobs:
 
       - name: Run Kick check
         env:
-          # required
           KICK_USER: ${{ secrets.USER }}     
           DISCORD_TOKEN: ${{ secrets.TOKEN }}  
           DISCORD_CHANNEL_ID: ${{ secrets.CHANNEL }} 
-          # optional
           NOTIFY_WINDOW: '2'                         
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
         run: python check_kick.py
