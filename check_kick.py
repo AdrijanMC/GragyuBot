@@ -10,7 +10,7 @@ import subprocess
 USER = os.environ.get("USER")
 TOKEN = os.environ.get("TOKEN") 
 CHANNEL = os.environ.get("CHANNEL")
-NOTIFY_WINDOW = int(os.environ.get("NOTIFY_WINDOW", "15"))
+NOTIFY_WINDOW = int(os.environ.get("NOTIFY_WINDOW", "2"))
 GIT_TOKEN = os.environ.get("GIT_TOKEN") 
 
 if not USER:
