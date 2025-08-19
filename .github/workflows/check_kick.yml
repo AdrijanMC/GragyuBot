@@ -27,5 +27,5 @@ jobs:
           DISCORD_CHANNEL_ID: ${{ secrets.CHANNEL }} 
           # optional
           NOTIFY_WINDOW: '2'                         
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
         run: python check_kick.py
