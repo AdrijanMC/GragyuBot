@@ -11,7 +11,7 @@ KICK_USER = os.environ.get("USER")
 TOKEN = os.environ.get("TOKEN") 
 CHANNEL_ID = os.environ.get("CHANNEL")
 NOTIFY_WINDOW = int(os.environ.get("NOTIFY_WINDOW", "15"))
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN") 
+GITHUB_TOKEN = os.environ.get("GIT_TOKEN") 
 
 if not KICK_USER:
     print("Missing required env: KICK_USER")
